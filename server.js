@@ -10,6 +10,7 @@ import connectDB         from './config/db.js';
 import { fileURLToPath } from 'url';
 import fs                from 'fs';
 import morgan            from 'morgan';
+import logger            from './logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
+  logger.info('access server home page');
   res.json({
     message: 'TODO APP SERVER'
   });
